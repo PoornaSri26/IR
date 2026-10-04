@@ -1,0 +1,5 @@
+# Core system: pure standard library (no runtime dependencies).
+#
+# Development / experiment extras:
+pytest>=8          # test suite
+matplotlib>=3.7    # plots in results/ (optional; experiments degrade gracefully)

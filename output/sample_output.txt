@@ -1,0 +1,149 @@
+========================================
+POSITIONAL INFORMATION RETRIEVAL SYSTEM
+========================================
+Dataset: Cranfield | Documents: 1400 | Tokens: 243204 | Unique terms: 7471
+Index built in 1.33s | Size: postings raw 1.37 MB, delta+varbyte 0.61 MB
+Positions are 1-based | distance convention: adjacent words are distance 1
+
+----------------------------------------
+PHRASE QUERY: "boundary layer"
+Plan: layer(df=398) -> boundary(df=459) | docs after intersection: 359
+Matching documents: 353   (query time 4.89 ms)
+  1 boundary@111 layer@112
+       ...ent produced by the slipstream was due to a /destalling/ or [boundary]-[layer]-control effect .  the integrated remaining lift increment, ...
+  2 boundary@76 layer@77
+       ...iscid rotational flow region between the shock wave and the [boundary] [layer] .  such a situation arises, for instance, in the study of t...
+  3 boundary@2 layer@3
+       the [boundary] [layer] in simple shear flow past a flat plate . the boundary layer...
+
+----------------------------------------
+PHRASE QUERY: "heat transfer"
+Plan: transfer(df=201) -> heat(df=254) | docs after intersection: 184
+Matching documents: 181   (query time 1.49 ms)
+  12 heat@88 transfer@89
+       ...aircraft structures .  the state of the art with respect to [heat] [transfer] from the boundary layer into the structure, modes of failur...
+  21 heat@2 transfer@3
+       on [heat] [transfer] in slip flow . on heat transfer in slip flow . a number of ...
+  22 heat@4 transfer@5
+       on slip-flow [heat] [transfer] to a flat plate . on slip-flow heat transfer to a flat plat...
+
+----------------------------------------
+PHRASE QUERY: "boundary layer"
+Plan: layer(df=398) -> boundary(df=459) | docs after intersection: 359
+Matching documents: 353   (query time 3.09 ms)
+  1
+  2
+  3
+why-not: 18 lacks the term 'layer' entirely
+
+----------------------------------------
+PROXIMITY QUERY: shock NEAR/3 wave  (unordered)
+Plan: wave(df=168) -> shock(df=237) | docs after intersection: 117
+Matching documents: 98   (query time 0.92 ms)
+  2 shock@[50, 72] wave@[51, 73] (50,51) (72,73)
+       ...mensional body it is usually necessary to consider a curved [shock] [wave] emitting from the nose or leading edge of the body .  consequently, there exists an inviscid rotational flow region between the [shock] [wave] and the boundary layer .  such a situation arises, for inst...
+  25 shock@[126, 164] wave@[127, 165] (126,127) (164,165)
+       ...plate with a blunt leading edge at in helium shows that the [shock]-[wave] shape is predicted very accurately by this similarity analysis .  the predicted surface pressure distribution is somewhat less satisfactory .  experimental results on a hemisphere-cylinder obtained at in the galcit air tunnel indicate that not only the [shock]-[wave] shape but also the surface pressures for this body are give...
+  64 shock@[6, 16, 105] wave@[7, 17, 108] (6,7) (16,17) (105,108)
+       unsteady oblique interaction of a [shock] [wave] with plane disturbances . unsteady oblique interaction of a [shock] [wave] with plane disturbances . analysis is made of the flow field produced by oblique impingement of weak plane disturbances of arbitrary profile on a plane normal shock . three types of disturbance are considered .. moves .  the sound wave refracts either as a simple isentropic sound wave or as an attenuating isentropic pressure wave, depending on the angle between the shock and the incident sound wave .  a stationary vorticity wave of constant pressure appears behind the shock . reflects as a sound wave, and a stationary vorticity wave is produced . the [shock] .  the incident [wave] refracts as a stationary vorticity wave, and either a sound...
+
+----------------------------------------
+PROXIMITY QUERY: shock ONEAR/3 wave  (ordered)
+Plan: wave(df=168) -> shock(df=237) | docs after intersection: 117
+Matching documents: 98   (query time 1.02 ms)
+  2 shock@[50, 72] wave@[51, 73] (50,51) (72,73)
+       ...mensional body it is usually necessary to consider a curved [shock] [wave] emitting from the nose or leading edge of the body .  consequently, there exists an inviscid rotational flow region between the [shock] [wave] and the boundary layer .  such a situation arises, for inst...
+  25 shock@[126, 164] wave@[127, 165] (126,127) (164,165)
+       ...plate with a blunt leading edge at in helium shows that the [shock]-[wave] shape is predicted very accurately by this similarity analysis .  the predicted surface pressure distribution is somewhat less satisfactory .  experimental results on a hemisphere-cylinder obtained at in the galcit air tunnel indicate that not only the [shock]-[wave] shape but also the surface pressures for this body are give...
+  64 shock@[6, 16, 105] wave@[7, 17, 108] (6,7) (16,17) (105,108)
+       unsteady oblique interaction of a [shock] [wave] with plane disturbances . unsteady oblique interaction of a [shock] [wave] with plane disturbances . analysis is made of the flow field produced by oblique impingement of weak plane disturbances of arbitrary profile on a plane normal shock . three types of disturbance are considered .. moves .  the sound wave refracts either as a simple isentropic sound wave or as an attenuating isentropic pressure wave, depending on the angle between the shock and the incident sound wave .  a stationary vorticity wave of constant pressure appears behind the shock . reflects as a sound wave, and a stationary vorticity wave is produced . the [shock] .  the incident [wave] refracts as a stationary vorticity wave, and either a sound...
+
+----------------------------------------
+PROXIMITY QUERY: shock NEAR/3 wave  (unordered)
+Plan: wave(df=168) -> shock(df=237) | docs after intersection: 117
+Matching documents: 98   (query time 1.33 ms)
+  2
+  25
+  64
+why-not: 72 does not match shock NEAR/3 wave: 'shock' at 4, 'wave' at 8; min distance = 4 > k=3
+
+----------------------------------------
+WINDOW QUERY: WINDOW/12(supersonic boundary layer interaction)
+Plan: interaction(df=82) -> supersonic(df=267) -> layer(df=398) -> boundary(df=459) | docs after intersection: 18
+Matching documents: 0   (query time 2.23 ms)
+  (tip: use --why-doc <docname> to see how close it got)
+
+----------------------------------------
+BOOLEAN AND QUERY: aeroelastic AND flutter AND theory
+Plan: aeroelastic(df=16) | flutter(df=56) | theory(df=432) | docs after intersection: 4
+Matching documents: 4   (query time 0.42 ms)
+  390
+  781
+  14
+  685
+
+----------------------------------------
+PARSE ERROR: Bad NEAR syntax. Use exactly:  term NEAR/3 term    (operands must be single terms)
+
+----------------------------------------
+RANKED QUERY (BM25 over all 1400 documents): aeroelastic flutter theory
+     390  score=13.129  [3, 10, 32, 57, 107] <- 'flutter' positions
+     781  score=12.651  [74, 127, 143, 221] <- 'flutter' positions
+      14  score=12.075  [143, 171, 229, 256] <- 'flutter' positions
+     685  score=10.772  [47, 192, 210, 277, 329] <- 'flutter' positions
+     746  score=10.698  [119] <- 'flutter' positions
+
+========================================
+TOY CORPUS (10 documents) — edge cases, verifiable by eye
+========================================
+Documents: 10 | Tokens: 136 | Unique terms: 84
+----------------------------------------
+PHRASE QUERY: "king of spain"
+Plan: king(df=1) -> spain(df=1) -> of(df=3) | docs after intersection: 1
+Matching documents: 1   (query time 0.08 ms)
+  d3 king@2 of@3 spain@4
+       The [king] [of] [Spain] lives in Madrid. The king of Spain opened the conference.
+----------------------------------------
+PHRASE QUERY: "to be or not to be"
+Plan: or(df=1) -> be(df=1) -> not(df=1) -> to(df=2) | docs after intersection: 1
+Matching documents: 1   (query time 0.07 ms)
+  d4 to@1 be@2 or@3 not@4 to@5 be@6
+       [To] [be] [or] [not] [to] [be], that is the question.
+----------------------------------------
+PHRASE QUERY: "new new york"
+Plan: new(df=1) -> york(df=1) | docs after intersection: 1
+Matching documents: 1   (query time 0.06 ms)
+  d5 new@1 new@2 york@3
+       [New] [new] [York] is a typo for New York. New York is a big city.
+----------------------------------------
+PHRASE QUERY: "buffalo buffalo"
+Plan: buffalo(df=1) | docs after intersection: 1
+Matching documents: 1   (query time 0.04 ms)
+  d6 buffalo@12 buffalo@13
+       ... data everywhere. The data team stores data in a warehouse. [Buffalo] [buffalo] buffalo.
+----------------------------------------
+PROXIMITY QUERY: data NEAR/2 data  (unordered)
+Plan: data(df=1) | docs after intersection: 1
+Matching documents: 1   (query time 0.04 ms)
+  d6 data@[1, 2] data@[2, 1] (1,2) (2,1)
+       [Data] [data] everywhere. The data team stores data in a warehouse. Buffa...
+----------------------------------------
+PROXIMITY QUERY: data NEAR/0 data  (unordered)
+Plan: data(df=1) | docs after intersection: 1
+Matching documents: 0   (query time 0.03 ms)
+  (tip: use --why-doc <docname> to see how close it got)
+----------------------------------------
+WINDOW QUERY: WINDOW/4(x ray machine)
+Plan: machine(df=1) -> ray(df=1) -> x(df=1) | docs after intersection: 1
+Matching documents: 1   (query time 0.08 ms)
+  d8 window [2..4] span=2 terms=['x', 'ray', 'machine']
+       The [x]-[ray] [machine] detects fractures; a 3.5 mm plate was inserted.
+----------------------------------------
+PHRASE QUERY: "across information retrieval"
+Plan: across(df=1) -> retrieval(df=2) -> information(df=3) | docs after intersection: 0
+Matching documents: 0   (query time 0.04 ms)
+  (tip: use --why-doc <docname> to see how close it got)
+----------------------------------------
+why-not: d9 lacks the term 'retrieval' entirely
+why-not: d9 does not match heat NEAR/2 temperature: 'heat' at 1, 'temperature' at 6; min distance = 5 > k=2
+
